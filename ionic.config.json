@@ -1,5 +1,8 @@
 {
   "name": "thinfilm",
-  "integrations": {},
-  "type": "angular"
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "f552c8a4"
 }

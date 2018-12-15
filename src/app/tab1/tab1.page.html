@@ -1,23 +1,48 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab One
+      Create a Note
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-card class="welcome-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
+      <!-- <ion-img src="/assets/shapes.svg"></ion-img> -->
       <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
+        <ion-card-subtitle>Note Title.</ion-card-subtitle>
+        <ion-card-title>
+          <ion-item>
+          <ion-input [(ngModel)]="note.title" placeholder="Note..." clearInput ngDefaultControl></ion-input>
+        </ion-item>
+      </ion-card-title>
       </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
+      <ion-card-content >
+          <ion-item>
+              <ion-textarea style="height: 350px;" [(ngModel)]="note.body" ngDefaultControl placeholder="Note Content..."></ion-textarea>
+            </ion-item>
       </ion-card-content>
     </ion-card>
-    <ion-list lines="none">
+
+    <ion-grid no-margin>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col>
+          <ion-button color="danger" ion-button round >
+              Cancel
+          </ion-button>
+            <ion-button (click)="saveNote()" ion-button round >
+                Save
+            </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+
+
+
+    <!-- <ion-list lines="none">
       <ion-list-header>
         <ion-label>Resources</ion-label>
       </ion-list-header>
@@ -37,5 +62,5 @@
         <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
         <ion-label>Theme Your App</ion-label>
       </ion-item>
-    </ion-list>
+    </ion-list> -->
 </ion-content>

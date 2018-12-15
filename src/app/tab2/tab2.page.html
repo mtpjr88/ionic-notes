@@ -1,9 +1,66 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      My Notes
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content >
+  <ion-card *ngFor="let note of notes; let i=index;"
+   class="welcome-card">
+   <ion-grid>
+      <ion-row align-items-end>
+          <ion-col></ion-col>
+          <ion-col></ion-col>
+          <ion-col style="margin-left: 200px;"
+                  (click)="note.isEdit=true">
+          <ion-icon *ngIf="!note.isEdit" name="redo"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+      <ion-card-header  *ngIf="!note.isEdit">
+          <ion-card-subtitle>Title</ion-card-subtitle>
+        <ion-card-title>{{note.title}}</ion-card-title>
+      </ion-card-header>
+    <ng-container *ngIf="note.isEdit">
+        <ion-card-header >
+            <ion-card-subtitle>Title</ion-card-subtitle>
+            <ion-input type="title" placeholder="{{note.title}}" [(ngModel)]="note.title">{{note.title}}</ion-input>
+            <ion-card-subtitle>Content</ion-card-subtitle>
+            <ion-textarea [ngClass]="{'expand': note.isEdit}" ngDefaultControl placeholder="{{note.body}}" [(ngModel)]="note.body">{{note.body}}</ion-textarea>
+            <ion-button (click)="note.isEdit=false" ion-button outline>
+                Save
+            </ion-button>
+        </ion-card-header>
+    </ng-container>
+      <ion-card-content *ngIf="!note.isEdit">
+          <ion-card-subtitle>Content</ion-card-subtitle>
+          {{note.body}}
+      </ion-card-content>
+  </ion-card>
+
+
+
+  <!-- <ion-grid no-margin>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-button color="danger" ion-button round >
+            Cancel
+        </ion-button>
+          <ion-button (click)="saveNote()" ion-button round >
+              Save
+          </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+
+
+
+
+
+</ion-content>
+
