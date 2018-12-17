@@ -13,7 +13,7 @@ export class Tab2Page {
 
   constructor(private _tabService: Tab1Service) {
     this._tabService.getAllNotes().subscribe(res => {
-      this.notes = res;
+      this.notes = res.reverse();
       console.log('Notes:', this.notes);
     });
 
@@ -21,6 +21,9 @@ export class Tab2Page {
 
   public async updateNote(note: Notes) {
    const uNote = await this._tabService.updateNote(note.id, { title: note.title, body: note.body });
+   if (note['isEdit']) {
+     note['isEdit'] = false;
+   }
   }
 
   public async deleteNote(note: Notes) {
