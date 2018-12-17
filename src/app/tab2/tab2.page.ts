@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Tab1Service } from '../tab1/tab1.service';
 
+
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -18,7 +19,12 @@ export class Tab2Page {
 
   }
 
-  public openEdit(i) {
-   return <Notes>this.notes[i];
+  public async updateNote(note: Notes) {
+   const uNote = await this._tabService.updateNote(note.id, { title: note.title, body: note.body });
+  }
+
+  public async deleteNote(note: Notes) {
+    const dNote = await this._tabService.deleteNote(note.id);
+    console.log('deleted note:', dNote);
   }
 }

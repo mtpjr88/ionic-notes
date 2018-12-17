@@ -30,8 +30,11 @@
             <ion-input type="title" placeholder="{{note.title}}" [(ngModel)]="note.title">{{note.title}}</ion-input>
             <ion-card-subtitle>Content</ion-card-subtitle>
             <ion-textarea [ngClass]="{'expand': note.isEdit}" ngDefaultControl placeholder="{{note.body}}" [(ngModel)]="note.body">{{note.body}}</ion-textarea>
-            <ion-button (click)="note.isEdit=false" ion-button outline>
-                Save
+            <ion-button (click)="updateNote(note)" ion-button outline>
+                save changes
+            </ion-button>
+            <ion-button (click)="deleteNote(note)" color="danger" ion-button outline>
+                &times;
             </ion-button>
         </ion-card-header>
     </ng-container>

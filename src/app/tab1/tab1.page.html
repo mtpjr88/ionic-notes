@@ -19,7 +19,7 @@
       </ion-card-header>
       <ion-card-content >
           <ion-item>
-              <ion-textarea style="height: 350px;" [(ngModel)]="note.body" ngDefaultControl placeholder="Note Content..."></ion-textarea>
+              <ion-textarea style="height: 300px;" [(ngModel)]="note.body" ngDefaultControl placeholder="Note Content..."></ion-textarea>
             </ion-item>
       </ion-card-content>
     </ion-card>
@@ -28,8 +28,8 @@
       <ion-row>
         <ion-col></ion-col>
         <ion-col>
-          <ion-button color="danger" ion-button round >
-              Cancel
+          <ion-button (click)="clearInput()" color="danger" ion-button round >
+              Clear
           </ion-button>
             <ion-button (click)="saveNote()" ion-button round >
                 Save
