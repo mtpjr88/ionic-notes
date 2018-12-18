@@ -3,7 +3,8 @@ dependancies: Node.js 10
 
 to run: 
 1) npm install
-2) npm start
+# to run in browser
+2) npm start 
 
 to build on device
 # ios:
